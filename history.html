@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <title>Test History</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<nav>
+
+    <h2>NAWI Test System</h2>
+
+    <div>
+
+        <a href="/">Dashboard</a>
+
+        <a href="/new-test">New Test</a>
+
+        <a href="/history">History</a>
+
+    </div>
+
+</nav>
+
+
+<div class="container">
+
+    <h1>Test History</h1>
+
+
+    <table>
+
+        <tr>
+
+            <th>ID</th>
+
+            <th>Manufacturer</th>
+
+            <th>Model</th>
+
+            <th>Serial No</th>
+
+            <th>Load</th>
+
+            <th>Error</th>
+
+            <th>MPE</th>
+
+            <th>Result</th>
+
+            <th>Report</th>
+
+        </tr>
+
+
+        {% for test in tests %}
+
+        <tr>
+
+            <td>{{ test["id"] }}</td>
+
+            <td>{{ test["manufacturer"] }}</td>
+
+            <td>{{ test["model"] }}</td>
+
+            <td>{{ test["serial_no"] }}</td>
+
+            <td>{{ test["test_load"] }}</td>
+
+            <td>{{ test["error"] }}</td>
+
+            <td>{{ test["mpe"] }}</td>
+
+            <td>
+
+                <b>{{ test["result"] }}</b>
+
+            </td>
+
+            <td>
+
+                <a href="/generate-report/{{ test['id'] }}">
+
+                    PDF
+
+                </a>
+
+            </td>
+
+        </tr>
+
+        {% endfor %}
+
+    </table>
+
+</div>
+
+</body>
+
+</html>

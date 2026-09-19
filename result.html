@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <title>Test Result</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<nav>
+
+    <h2>NAWI Test System</h2>
+
+    <div>
+
+        <a href="/">Dashboard</a>
+
+        <a href="/new-test">New Test</a>
+
+        <a href="/history">History</a>
+
+    </div>
+
+</nav>
+
+
+<div class="container">
+
+    <h1>Test Result</h1>
+
+
+    <div class="result-box">
+
+        <h2>Instrument</h2>
+
+        <p>
+            <b>Manufacturer:</b>
+            {{ test["manufacturer"] }}
+        </p>
+
+        <p>
+            <b>Model:</b>
+            {{ test["model"] }}
+        </p>
+
+        <p>
+            <b>Serial Number:</b>
+            {{ test["serial_no"] }}
+        </p>
+
+        <p>
+            <b>Accuracy Class:</b>
+            {{ test["accuracy_class"] }}
+        </p>
+
+    </div>
+
+
+    <div class="result-box">
+
+        <h2>Test Calculation</h2>
+
+        <p>
+            Test Load:
+            <b>{{ test["test_load"] }} kg</b>
+        </p>
+
+        <p>
+            Indicated Value:
+            <b>{{ test["indicated_value"] }} kg</b>
+        </p>
+
+        <p>
+            Error:
+            <b>{{ test["error"] }} kg</b>
+        </p>
+
+        <p>
+            Maximum Permissible Error:
+            <b>{{ test["mpe"] }} kg</b>
+        </p>
+
+    </div>
+
+
+    <div class="final-result">
+
+        <h2>
+            FINAL RESULT:
+            {{ test["result"] }}
+        </h2>
+
+    </div>
+
+
+    <a class="button"
+       href="/generate-report/{{ test['id'] }}">
+
+       Generate PDF Report
+
+    </a>
+
+
+    <a class="button secondary"
+       href="/new-test">
+
+       New Test
+
+    </a>
+
+</div>
+
+</body>
+
+</html>

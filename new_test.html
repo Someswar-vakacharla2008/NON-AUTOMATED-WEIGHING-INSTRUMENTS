@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <title>New NAWI Test</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<nav>
+
+    <h2>NAWI Test System</h2>
+
+    <div>
+
+        <a href="/">Dashboard</a>
+
+        <a href="/new-test">New Test</a>
+
+        <a href="/history">History</a>
+
+    </div>
+
+</nav>
+
+
+<div class="form-container">
+
+    <h1>Instrument Test</h1>
+
+    <form action="/calculate"
+          method="POST">
+
+
+        <h2>Instrument Details</h2>
+
+
+        <label>Manufacturer</label>
+
+        <input type="text"
+               name="manufacturer"
+               required>
+
+
+        <label>Model</label>
+
+        <input type="text"
+               name="model"
+               required>
+
+
+        <label>Serial Number</label>
+
+        <input type="text"
+               name="serial_no"
+               required>
+
+
+        <label>Maximum Capacity (kg)</label>
+
+        <input type="number"
+               step="0.001"
+               name="capacity"
+               required>
+
+
+        <label>Minimum Capacity (kg)</label>
+
+        <input type="number"
+               step="0.001"
+               name="min_capacity"
+               required>
+
+
+        <label>Accuracy Class</label>
+
+        <select name="accuracy_class">
+
+            <option value="I">Class I</option>
+
+            <option value="II">Class II</option>
+
+            <option value="III">Class III</option>
+
+            <option value="IIII">Class IIII</option>
+
+        </select>
+
+
+        <h2>Test Data</h2>
+
+
+        <label>Test Load (kg)</label>
+
+        <input type="number"
+               step="0.001"
+               name="test_load"
+               required>
+
+
+        <label>Indicated Value (kg)</label>
+
+        <input type="number"
+               step="0.001"
+               name="indicated_value"
+               required>
+
+
+        <label>Test Date</label>
+
+        <input type="date"
+               name="test_date"
+               required>
+
+
+        <button type="submit">
+
+            Calculate Result
+
+        </button>
+
+
+    </form>
+
+</div>
+
+</body>
+
+</html>

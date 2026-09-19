@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <title>NAWI Test Report System</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+
+<nav>
+
+    <h2>NAWI Test System</h2>
+
+    <div>
+
+        <a href="/">Dashboard</a>
+
+        <a href="/new-test">New Test</a>
+
+        <a href="/history">History</a>
+
+    </div>
+
+</nav>
+
+
+<div class="container">
+
+    <h1>NAWI Test Report Generation System</h1>
+
+    <p>
+        Non-Automatic Weighing Instrument
+        Testing Application
+    </p>
+
+
+    <div class="cards">
+
+        <div class="card">
+
+            <h3>Total Tests</h3>
+
+            <h2>{{ total }}</h2>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3>Passed</h3>
+
+            <h2>{{ passed }}</h2>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3>Failed</h3>
+
+            <h2>{{ failed }}</h2>
+
+        </div>
+
+    </div>
+
+
+    <div class="start">
+
+        <h2>Start New Inspection</h2>
+
+        <p>
+            Enter NAWI instrument details and
+            perform the required test.
+        </p>
+
+        <a class="button"
+           href="/new-test">
+
+           Start New Test
+
+        </a>
+
+    </div>
+
+</div>
+
+</body>
+
+</html>
